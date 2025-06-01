@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--==================== UNICONS ====================-->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+        
+        <!--==================== CSS ====================-->
+        <link rel="stylesheet" href="style.css">
+
+        <!--==================== JS ====================-->
+        <script src="script.js" defer></script>
+
+        <title>Portfolio Website</title>
+    </head>
+
+    <body>
+        <div id="cursor-trail-container"></div>
+        <div id="introOverlay">
+            <div class="typingContainer">
+                <span id="typingText"></span><span class="cursor">|</span>
+            </div>
+            <div class="skipHint" id="skipHint">Click anywhere to skip.</div>
+        </div>
+
+
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="navContainer">
+                <div class="navLogo">Alex</div>
+
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="themeIcons">
+                    <div class="iconWrapper">
+                        <img id="cursorToggle" src="assets/icons/cursor-none.svg">
+                    </div>
+                    <div class="iconWrapper">
+                        <i class="uil uil-sun" id="themeToggle" title="Toggle Theme"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <div class="homeContainer">
+                    <div class="homeText">
+                        <h1>Howdy, I'm Alex</h1>
+                        <h2>CS Student at <span class="schoolText">Texas A&M University</span></h2>
+                        <hr>
+                        <p>While i'm not studying, I enjoy creating visually appealing and highly functioning applications to hone my software development skills.</p>
+                        <div class="homeSocials">
+                            <a href="assets/myCV.pdf" download="FlesherResume.pdf" class="buttonDownload">
+                                <i class="uil uil-file-download"></i>CV Download
+                            </a>
+                            <a href="https://www.instagram.com/alex.flesherr/" target="_blank">
+                                <i class="uil uil-instagram" style="color: #e1306c"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/alex-flesher-7a425032b/" target="_blank">
+                                <i class="uil uil-linkedin-alt" style="color: #0077B5"></i>
+                            </a>
+                            <a href="https://github.com/AlexFlesher" target="_blank">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="homeAvatar">
+                        <img src="assets/real_cropped.png" alt="Avatar" class="homeAvatar-img" />
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about" id="about">
+                <div class="aboutContainer">
+                    <div class="aboutText">
+                        <div class="aboutLabel">.aboutme</div>
+                        <div class="aboutToggle">
+                            <button id="toggleAbout">Switch to Personal</button>
+                        </div>
+
+                        <div class="aboutContent professional active">
+                            <p>📍 19 y/o born in Houston, TX</p>
+                            <p>📘 CS Student @ Texas A&M University</p>
+                            <p>💻 Interested in Front End Development and Machine Learning</p>
+                        </div>
+
+                        <div class="aboutContent personal">
+                            <p>🔥 Fitness enthusiast who loves hitting the gym</p>
+                            <p>⛳ Passionate about sports — especially tennis, pickleball, golf, and basketball</p>
+                            <p>🏎️ Car lover always geeking out over engines and design</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== SKILLS ====================-->
+            <section class="skills" id="skills">
+                <h1>Current Technologies</h1>
+                <p>These are some of the main technologies I use throughout my projects.</p>
+                <div class="skillsGrid">
+                    <div class="skillTile">
+                        <img src="assets/skills/python.svg">
+                        <div class="skillText">
+                            <h3>Python</h3>
+                            <p>Programming language</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/javascript.svg">
+                        <div class="skillText">
+                            <h3>JavaScript</h3>
+                            <p>Programming language</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/react.svg">
+                        <div class="skillText">
+                            <h3>React</h3>
+                            <p>JavaScript Library</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/tailwindcss.svg">
+                        <div class="skillText">
+                            <h3>Tailwind</h3>
+                            <p>CSS Framework</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/flask.svg">
+                        <div class="skillText">
+                            <h3>Flask</h3>
+                            <p>Backend Logic</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/git.svg">
+                        <div class="skillText">
+                            <h3>Git/GitHub</h3>
+                            <p>Version Control</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/opencv.svg">
+                        <div class="skillText">
+                            <h3>OpenCV</h3>
+                            <p>Computer Vision</p>
+                        </div>
+                    </div>
+                    <div class="skillTile">
+                        <img src="assets/skills/pytorch.svg">
+                        <div class="skillText">
+                            <h3>PyTorch</h3>
+                            <p>ML Framework</p>
+                        </div>
+                    </div>
+                </div>
+            </section>            
+
+            <!--==================== PROJECTS ====================-->
+            <section class="projects" id="projects">
+                <div class="projectsContainer">
+                    <div class="projectsTitle">
+                        <h1>Projects</h1>
+                        <p>Some things I’ve built recently.</p>
+                    </div>
+                    <div class="projects-line top-line"></div>
+
+                    <div class="projectsContent">
+                        <div class="project">
+                            <img src="assets/projectScreenshots/ReflectAI2.jpg">
+                            <div class="projectText">
+                                <h1>ReflectAI</h1>
+                                <p>Uses computer vision and machine learning to detect, track, and make line calls for a game of Aquaball (volleyball in a pool) using YOLOv8 and OpenCV</p>
+                            </div>
+                            <div class="projectButtons">
+                                <button class="buttonProject buttonUnused"><i class="uil uil-link"></i> View Project</button>
+                                <a href="https://github.com/AlexFlesher/ReflectAI" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonCode"><i class="uil uil-arrow"></i> Source Code</button>
+                                </a>
+                                </div>                      
+                        </div>
+                        <div class="project">
+                            <img src="assets/projectScreenshots/Insight.jpg">
+                            <div class="projectText">
+                                <h1>Insight</h1>
+                                <p>Generates personalized tech career roadmaps and reccomendations from user resumes, GitHub, LinkedIn, and user-defined preferences using Google Gemini API</p>
+                            </div>
+                            <div class="projectButtons">
+                                <a href="https://devpost.com/software/insight-sflmv6" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonProject"><i class="uil uil-link"></i> View Project</button>
+                                </a>
+                                <a href="https://github.com/AlexFlesher/insight" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonCode"><i class="uil uil-arrow"></i> Source Code</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project">
+                            <img src="assets/projectScreenshots/HitOrMiss.jpg">
+                            <div class="projectText">
+                                <h1>Hit or Miss</h1>
+                                <p>Uses Spotify API to generate song comparisons and test user music knowledge based on track popularity and listening trends.</p>
+                            </div>
+                            <div class="projectButtons">
+                                <a href="https://devpost.com/software/hit-or-miss-iqp32s" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonProject"><i class="uil uil-link"></i> View Project</button>
+                                </a>
+                                <a href="https://github.com/AlexFlesher/Hit_Or_Miss" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonCode"><i class="uil uil-arrow"></i> Source Code</button>
+                                </a>
+                            </div>   
+                        </div>
+                        <div class="project">
+                            <img src="assets/projectScreenshots/Portfolio.jpg">
+                            <div class="projectText">
+                                <h1>Portfolio</h1>
+                                <p>A responsive personal portfolio website built with vanilla HTML, CSS, and JavaScript to showcase projects, skills, and contact information with clean design and smooth animations.</p>
+                            </div>
+                            <div class="projectButtons">
+                                <a href="" rel="noopener noreferrer">
+                                    <button class="buttonProject"><i class="uil uil-link"></i> You are here!</button>
+                                </a>
+                                <a href="https://github.com/AlexFlesher/Portfolio" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonCode"><i class="uil uil-arrow"></i> Source Code</button>
+                                </a>
+                            </div>   
+                        </div>
+                        <div class="project">
+                            <img src="assets/projectScreenshots/FloppyFish.jpg">
+                            <div class="projectText">
+                                <h1>Floppy Fish</h1>
+                                <p>Creates an addictive underwater obstacle-dodging experience inspired by Flappy Bird, where players tap to navigate a fish through pipes, built using Unity.</p>
+                            </div>
+                            <div class="projectButtons">
+                                <a href="https://xeladev.itch.io/floppy-fish" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonProject"><i class="uil uil-link"></i> View Project</button>
+                                </a>
+                                <button class="buttonCode buttonUnused"><i class="uil uil-arrow"></i> Source Code</button>
+                            </div>  
+                        </div>
+                        <div class="project">
+                            <img src="assets/projectScreenshots/PixelPets.jpg">
+                            <div class="projectText">
+                                <h1>Pixel Pets</h1>
+                                <p>Lets users train a virtual pet through interactive minigames designed to build math and memory skills, created using simplified JavaScript in Code.org.</p>
+                            </div>
+                            <div class="projectButtons">
+                                <a href="https://studio.code.org/projects/applab/tFPCVTGuzxngO9v_ZmVAvMI0jVR5Lwecqi65ELEdNjs" target="_blank" rel="noopener noreferrer">
+                                    <button class="buttonProject"><i class="uil uil-link"></i> View Project</button>
+                                </a>
+                                <button onclick="confirmDownload()" class="buttonCode buttonDownload"><i class="uil uil-arrow"></i> Source Code</button>
+                                </div>  
+                        </div>
+                    </div>
+
+                    <div class="projects-line bottom-line"></div>
+                </div>
+            </section>
+
+            <!--==================== PORTFOLIO ====================-->
+            <section class="contact" id="contact">
+                <div class="contactContainer">
+                    <div class="contactTop">
+                        <h1>Lets Connect! Reach out via <span>email</span> below.</h1>
+                        <button class="contactEmail">Schedule Call</button>
+                    </div>
+                    <div class="contactBottom">
+                        <div class="contactCopyright">
+                            <h3>Alex Flesher</h3>
+                            <p>Personal: alexflesher03@gmail.com</p>
+                            <p>School: alexflesher03@tamu.edu</p>
+                            <hr>
+                            <p><i class="uil uil-copyright"></i>2025 | All rights reserved.</p>
+                        </div>
+                        <div class="contactLinks">
+                            <div class="contactNavigate">
+                                <h2>Navigate</h2>
+                                <a href="#home">Home</a>
+                                <a href="#about">About</a>
+                                <a href="#skills">Skills</a>
+                                <a href="#projects">Projects</a>
+                                <a href="#contact">Contact</a>
+                            </div>
+                            <div class="contactProjects">
+                                <h2>Projects</h2>
+                                <a href="https://github.com/AlexFlesher/ReflectAI" target="_blank" rel="noopener noreferrer">Reflect AI</a>
+                                <a href="https://github.com/AlexFlesher/insight" target="_blank" rel="noopener noreferrer">Insight</a>
+                                <a href="https://github.com/AlexFlesher/Hit_Or_Miss" target="_blank" rel="noopener noreferrer">Hit or Miss</a>
+                                <a href="https://github.com/AlexFlesher/Portfolio" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                            </div>
+                            <div class="contactSocials">
+                                <h2>Socials</h2>
+                                <a href="https://www.linkedin.com/in/alex-flesher-7a425032b/" target="_blank">LinkedIn</a>
+                                <a href="https://github.com/AlexFlesher" target="_blank">Github</a>
+                                <a href="https://www.instagram.com/alex.flesherr/" target="_blank">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <div style="height: 2rem;"></div>
+        
+        <!--==================== SCROLL TOP ====================-->
+
+    </body>
+</html>
