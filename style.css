@@ -67,7 +67,7 @@ a, a:visited {
 
 /*-------------Animation-------------*/
 #introOverlay {
-  display: none !important;
+  /*display: none !important;*/
   position: fixed;
   top: 0;
   left: 0;
