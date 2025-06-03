@@ -1,4 +1,4 @@
-//--------------------------------------------- Animation ---------------------------------------------------//
+//--------------------------------------------- Intro Animation ---------------------------------------------------//
 
 window.addEventListener("load", () => {
   const overlay = document.getElementById("introOverlay");
@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
     "> System ready. Welcome, User!"
   ];
 
-  let msgIndex = 0;
   let skipped = false;
   let sequenceDone = false;
 
@@ -54,7 +53,7 @@ window.addEventListener("load", () => {
     await delay(1500);
     typingContainer.style.opacity = "0";
     overlay.style.opacity = "0";
-    await delay(2000);
+    await delay(1000);
     overlay.style.display = "none";
     sequenceDone = true;
   }
@@ -71,29 +70,14 @@ window.addEventListener("load", () => {
 
 //---------------------------------------------------------------------------------------------------//
 
-//-------------------------------------- Hamburger Menu ---------------------------------------------//
+//-------------------------------- Hamburger Menu (For Mobile) --------------------------------------//
 
-// Hamburger toggle
 const hamburger = document.getElementById("hamburger");
 const navContainer = document.querySelector(".navContainer");
 
 hamburger.addEventListener("click", () => {
   navContainer.classList.toggle("open");
 });
-
-//---------------------------------------------------------------------------------------------------//
-
-//---------------------------------------- Download PDF ---------------------------------------------//
-
-function confirmDownload() {
-  const confirmed = confirm("Do you want to download this PDF?");
-  if (confirmed) {
-    const link = document.createElement('a');
-    link.href = 'assets/PixelPets.pdf';
-    link.download = 'PixelPets_Code.pdf';
-    link.click();
-  }
-}
 
 //---------------------------------------------------------------------------------------------------//
 
@@ -114,58 +98,6 @@ themeToggle.addEventListener('click', () => {
     themeToggle.classList.remove('uil-moon');
     themeToggle.classList.add('uil-sun');
   }
-});
-
-//---------------------------------------------------------------------------------------------------//
-
-//--------------------------------------- Skill Animation -------------------------------------------//
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const skillTiles = document.querySelectorAll('.skillTile');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // Add delay based on index to stagger the animations
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 150); // 150ms between each tile
-
-        observer.unobserve(entry.target); // only animate once
-      }
-    });
-  }, {
-    threshold: 1
-  });
-
-  skillTiles.forEach(tile => {
-    observer.observe(tile);
-  });
-});
-
-//---------------------------------------------------------------------------------------------------//
-
-//---------------------------------------- About Toggle ---------------------------------------------//
-
-const toggleBtn = document.getElementById('toggleAbout');
-const professional = document.querySelector('.aboutContent.professional');
-const personal = document.querySelector('.aboutContent.personal');
-
-toggleBtn.addEventListener('click', () => {
-  const showingProfessional = professional.classList.contains('active');
-
-  // Fade out current
-  const outgoing = showingProfessional ? professional : personal;
-  const incoming = showingProfessional ? personal : professional;
-
-  outgoing.classList.remove('active');
-  setTimeout(() => {
-    incoming.classList.add('active');
-  }, 50); // slight delay helps avoid overlap
-
-  // Update button text
-  toggleBtn.textContent = showingProfessional ? 'Switch to Professional' : 'Switch to Personal';
 });
 
 //---------------------------------------------------------------------------------------------------//
@@ -238,11 +170,129 @@ cursorIcon.src = getCursorIcon(currentMode);
 
 //---------------------------------------------------------------------------------------------------//
 
+//---------------------------------- Home Reveal Animation ------------------------------------------//
+
+function initHomeObserver() {
+  const homeElements = document.querySelectorAll('.homeText > *, .homeAvatar img');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, index * 150);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  homeElements.forEach(el => observer.observe(el));
+}
+
+function waitForIntroToFinishAndRevealHome() {
+  const overlay = document.getElementById("introOverlay");
+  const check = () => {
+    if (overlay.style.display === "none") {
+      initHomeObserver();
+    } else {
+      requestAnimationFrame(check); // efficient re-check
+    }
+  };
+  check();
+}
+
+document.addEventListener("DOMContentLoaded", waitForIntroToFinishAndRevealHome);
+
+//---------------------------------------------------------------------------------------------------//
+
+//---------------------------------------- About Button Toggle ---------------------------------------------//
+
+const toggleBtn = document.getElementById('toggleAbout');
+const professional = document.querySelector('.aboutContent.professional');
+const personal = document.querySelector('.aboutContent.personal');
+
+toggleBtn.addEventListener('click', () => {
+  const showingProfessional = professional.classList.contains('active');
+
+  // Fade out current
+  const outgoing = showingProfessional ? professional : personal;
+  const incoming = showingProfessional ? personal : professional;
+
+  outgoing.classList.remove('active');
+  setTimeout(() => {
+    incoming.classList.add('active');
+  }, 50); // slight delay helps avoid overlap
+
+  // Update button text
+  toggleBtn.textContent = showingProfessional ? 'Switch to Professional' : 'Switch to Personal';
+});
+
+//---------------------------------------------------------------------------------------------------//
+
+//----------------------------------------------- About Section Animation -------------------------------------------------//
+
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutBox = document.querySelector('.aboutText');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutBox.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  observer.observe(aboutBox);
+});
+
+//---------------------------------------------------------------------------------------------------//
+
+//--------------------------------------- Skill Section Animation -------------------------------------------//
+
+document.addEventListener("DOMContentLoaded", () => {
+  const skillTiles = document.querySelectorAll('.skillTile');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add delay based on index to stagger the animations
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, index * 150); // 150ms between each tile
+
+        observer.unobserve(entry.target); // only animate once
+      }
+    });
+  }, {
+    threshold: 1
+  });
+
+  skillTiles.forEach(tile => {
+    observer.observe(tile);
+  });
+});
+
+//---------------------------------------------------------------------------------------------------//
+
+//---------------------------------------- Pixel Pets Download PDF ---------------------------------------------//
+
+function confirmDownload() {
+  const confirmed = confirm("Do you want to download this PDF?");
+  if (confirmed) {
+    const link = document.createElement('a');
+    link.href = 'assets/PixelPets.pdf';
+    link.download = 'PixelPets_Code.pdf';
+    link.click();
+  }
+}
+
+//---------------------------------------------------------------------------------------------------//
+
 //------------------------------------ Schedule Call Button -----------------------------------------//
 
 document.querySelector('.contactEmail').addEventListener('click', () => {
   window.location.href = 'mailto:alexflesher03@gmail.com?subject=Schedule%20a%20Call&body=Hi%20Alex,%0AI\'d%20like%20to%20schedule%20a%20call%20with%20you.';
 });
 
-
-
+//---------------------------------------------------------------------------------------------------//
