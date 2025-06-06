@@ -93,6 +93,12 @@ a, a:visited {
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .typingContainer {
+    font-size: 1rem;
+  }
+}
+
 .cursor {
   display: inline-block;
   width: 1ch;
@@ -216,10 +222,11 @@ a, a:visited {
     right: 1.5rem;
     flex-direction: column;
     align-items: flex-end;
-    background-color: rgba(31, 31, 31, 0.6);
+    background-color: rgba(31, 31, 31, 1);
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
 
     /* Animation magic */
     opacity: 0;
@@ -452,10 +459,10 @@ a, a:visited {
 }
 
 /* VISIBLE STATE (fade in + slide up) */
-.homeText > .show,
-.homeAvatar img.show {
+.homeAvatar img.show,
+.homeText > *.show {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 .homeAvatar img:hover {
@@ -484,9 +491,12 @@ a, a:visited {
   }
 
   .homeAvatar img {
-    width: 60%;
     max-width: 350px;
     margin: 0 auto;
+  }
+
+  .homeSocials {
+    width: 20rem;
   }
 }
 
@@ -524,6 +534,16 @@ a, a:visited {
 .aboutText p:hover {
   transform: scale(1.05);
   text-shadow: 0 0 20px var(--border-color);
+}
+
+.aboutHeader {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
 .aboutLabel {
@@ -591,6 +611,27 @@ a, a:visited {
   font-weight: bold;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .aboutHeader {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .aboutLabel,
+  .aboutToggle {
+    position: static;
+    margin: 0.2rem 0;
+  }
+
+  .aboutLabel {
+    padding-bottom: 1rem;
+  }
+}
+
 /*------------------------------*/
 
 /*--------------Skills--------------*/
@@ -711,7 +752,46 @@ a, a:visited {
 
 @media (max-width: 768px) {
   .projectsContent {
-    grid-template-columns: 1fr; /* switch to 1 column on smaller screens */
+    grid-template-columns: 1fr;
+    max-height: 30rem; /* keeps scroll area fixed */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+
+  .project {
+    padding: 1rem;
+    max-height: 28rem; /* makes sure each tile fits inside view */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .project img {
+    max-height: 8rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .projectText h1 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .projectText p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .projectButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .projectButtons button {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -907,15 +987,7 @@ a, a:visited {
   }
 
   .contactLinks {
-    flex-direction: column;
-    gap: 2rem; /* space between stacked link categories */
-  }
-
-  .contactLinks h2,
-  .contactLinks a,
-  .contactCopyright h3,
-  .contactCopyright p {
-    font-size: 0.85rem; /* reduce text size on small screens */
+    display: none;
   }
 }
 

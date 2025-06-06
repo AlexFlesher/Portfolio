@@ -173,7 +173,7 @@ cursorIcon.src = getCursorIcon(currentMode);
 //---------------------------------- Home Reveal Animation ------------------------------------------//
 
 function initHomeObserver() {
-  const homeElements = document.querySelectorAll('.homeText > *, .homeAvatar img');
+  const homeElements = [...document.querySelectorAll('.homeAvatar img'), ...document.querySelectorAll('.homeText > *')];
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry, index) => {
