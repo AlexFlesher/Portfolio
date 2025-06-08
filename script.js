@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
 const hamburger = document.getElementById("hamburger");
 const navContainer = document.querySelector(".navContainer");
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {                                                                                                        
   navContainer.classList.toggle("open");
 });
 

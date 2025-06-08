@@ -491,12 +491,29 @@ a, a:visited {
   }
 
   .homeAvatar img {
+    transform: translateY(30px); /* Slide up slightly instead */
     max-width: 350px;
     margin: 0 auto;
   }
 
+  .homeText hr {
+    width: 10rem;
+  }
+
   .homeSocials {
     width: 20rem;
+    justify-content: center; /* Override for mobile */
+    margin-bottom: -5rem;
+  }
+
+  .homeSocials a {
+    width: 10rem;
+  }
+
+  .buttonDownload {
+    width: 9rem;
+    height: 5;
+    font-size: 0.9rem;
   }
 }
 
@@ -518,6 +535,7 @@ a, a:visited {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 2s ease, transform 2s ease;
+  overflow: hidden;
 }
 
 .aboutText.visible {
@@ -560,7 +578,7 @@ a, a:visited {
 .aboutToggle {
   position: absolute;
   top: 1rem;
-  right: 1.2rem;
+  right: 6rem;
 }
 
 .aboutToggle button {
@@ -630,6 +648,10 @@ a, a:visited {
   .aboutLabel {
     padding-bottom: 1rem;
   }
+
+  .about {
+    margin-bottom: -2rem;
+  }
 }
 
 /*------------------------------*/
@@ -690,6 +712,10 @@ a, a:visited {
 @media (max-width: 768px) {
   .skillsGrid {
     grid-template-columns: 1fr; /* switch to 1 column on smaller screens */
+  }
+
+  .skills {
+    margin-bottom: -3rem;
   }
 }
 /*---------------------------------------*/
