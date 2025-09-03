@@ -427,22 +427,26 @@ a, a:visited {
 }
 
 .homeAvatar {
-  width: 50%;
+  width: 50%; /* Adjust if needed for layout */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
 }
 
-.homeAvatar img {
+.homeAvatar-img {
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Matches desired display size */
   height: auto;
-  border: 7px solid var(--border-color);
+  border: 5px solid var(--border-color);
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(var(--shadow-color), 0.5);
+  box-shadow: 0 0 15px rgba(var(--shadow-color), 0.3);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
 }
 
 /* INITIAL STATE (hidden) */
